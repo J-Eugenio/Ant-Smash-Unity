@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 528036653867090475, guid: 61d88d080bd392f4a987220a26125a3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4290812429124655226, guid: 61d88d080bd392f4a987220a26125a3b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -584,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &593382400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,6 +682,10 @@ PrefabInstance:
     - target: {fileID: 4034224307394283064, guid: 7085d6da7f8f51044bd7f1ea0b3d0e87, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034224307394283064, guid: 7085d6da7f8f51044bd7f1ea0b3d0e87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7411639452169485838, guid: 7085d6da7f8f51044bd7f1ea0b3d0e87, type: 3}
       propertyPath: m_RootOrder
@@ -1003,6 +1011,10 @@ PrefabInstance:
     - target: {fileID: 7621641183181318417, guid: 3474707e88e907b4d8fddf1e211d1545, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621641183181318417, guid: 3474707e88e907b4d8fddf1e211d1545, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7646358991739114817, guid: 3474707e88e907b4d8fddf1e211d1545, type: 3}
       propertyPath: m_RootOrder
