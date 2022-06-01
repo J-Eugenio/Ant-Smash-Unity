@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private Animator myAnimator;
     [SerializeField] private GameObject[] sprites;
     private GameController gameController;
+    private UIController uiController;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,7 @@ public class Enemy : MonoBehaviour
         sprites[0] = this.transform.GetChild(0).gameObject;
         sprites[1] = this.transform.GetChild(1).gameObject;
         gameController = FindObjectOfType<GameController>();
+        uiController = FindObjectOfType<UIController>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,8 @@ public class Enemy : MonoBehaviour
 
     public void Dead(){
         speed = 0f;
+        gameController.highScore += score;
+        uiController.UpdateScore(gameController.highScore);
         sprites[0].gameObject.SetActive(false);
         sprites[1].gameObject.SetActive(true);
         Destroy(this.gameObject, Random.Range(2.5f, 5f));
