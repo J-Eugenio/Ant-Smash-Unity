@@ -33,7 +33,8 @@ public class TapDetector : MonoBehaviour
         if(hit.collider.gameObject.CompareTag("Enemy") && !tapControl){
             tapControl = true;
             hit.collider.gameObject.GetComponent<Enemy>().Dead();
-            //enemy.Dead();
+            hit.collider.gameObject.GetComponent<Enemy>().PlayAudio(tapControl);
+            hit.collider.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Debug.Log(hit.transform.name);
             Handheld.Vibrate();
         }
