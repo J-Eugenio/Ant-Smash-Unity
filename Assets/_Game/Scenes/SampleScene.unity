@@ -646,6 +646,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f972740f549823e4b86614db8fce2c44, type: 3}
   - {fileID: 8300000, guid: c4cedeb4fd8b4e648adb0602c8c8b914, type: 3}
   highScore: 0
+  enemyCount: 0
 --- !u!4 &600319389
 Transform:
   m_ObjectHideFlags: 0
@@ -995,6 +996,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtScore: {fileID: 669121242}
+  imageLifes:
+  - {fileID: 1792471107}
+  - {fileID: 1460592277}
+  - {fileID: 106853952}
+  - {fileID: 1538515223}
+  - {fileID: 112875228}
 --- !u!4 &1269014952
 Transform:
   m_ObjectHideFlags: 0
