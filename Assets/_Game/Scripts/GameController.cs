@@ -9,12 +9,18 @@ public class GameController : MonoBehaviour
     [HideInInspector] public int enemyCount;
     private UIController uIController;
     public Transform allEnemiesParent;
+
+    private Spawner spawner;
     // Start is called before the first frame update
+    private void Awake() {
+        uIController = FindObjectOfType<UIController>();
+        spawner = FindObjectOfType<Spawner>();
+    }
     void Start()
     {
         highScore = 0;
         enemyCount = 0;
-        uIController = FindObjectOfType<UIController>();
+        spawner.gameObject.GetComponent<Spawner>().enabled = false;
     }
 
     // Update is called once per frame
@@ -32,5 +38,12 @@ public class GameController : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void StartGame(){
+        highScore = 0;
+        enemyCount = 0;
+        uIController.txtScore.text = highScore.ToString();
+        spawner.gameObject.GetComponent<Spawner>().enabled = true;
     }
 }

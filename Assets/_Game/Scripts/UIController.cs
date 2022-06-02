@@ -8,14 +8,15 @@ public class UIController : MonoBehaviour
 
     public TMP_Text txtScore;
     public Image[] imageLifes;
-    public GameObject panelGame, panelPause;
+    public GameObject panelGame, panelPause, panelMainMenu, allLifes;
     private GameController gameController;
-    public Transform allLifes;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        panelGame.gameObject.SetActive(true);
+        panelMainMenu.gameObject.SetActive(true);
+        panelGame.gameObject.SetActive(false);
         panelPause.gameObject.SetActive(false);
         gameController = FindObjectOfType<GameController>();
     }
@@ -26,6 +27,16 @@ public class UIController : MonoBehaviour
         
     }
 
+    public void ButtonStartGame(){
+        panelMainMenu.gameObject.SetActive(false);
+        panelGame.gameObject.SetActive(true);
+        gameController.StartGame();
+    }
+
+    public void ButtonExitGame(){
+        AndroidJavaObject activity = new AndroidJavaObject("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+        activity.Call<bool>("moveTaskToBack", true);
+    }
     public void UpdateScore(int score){
         txtScore.text = score.ToString();
     }
