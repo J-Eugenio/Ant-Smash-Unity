@@ -6,25 +6,26 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
 
-    public TMP_Text txtScore;
+    public TMP_Text txtScore, txtHighscore, txtFinalScore;
     public Image[] imageLifes;
-    public GameObject panelGame, panelPause, panelMainMenu, allLifes;
+    [SerializeField] private GameObject panelGame, panelPause, panelMainMenu, allLifes;
+    public GameObject panelGameOver;
     private GameController gameController;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Initialize();
+    }
+
+    private void Initialize(){
         panelMainMenu.gameObject.SetActive(true);
+        panelGameOver.gameObject.SetActive(false);
         panelGame.gameObject.SetActive(false);
         panelPause.gameObject.SetActive(false);
         gameController = FindObjectOfType<GameController>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        txtHighscore.text = "Highscore: " + gameController.highScore.ToString();
     }
 
     public void ButtonStartGame(){
@@ -56,13 +57,17 @@ public class UIController : MonoBehaviour
     public void ButtonBackMainMenu(){
         Time.timeScale = 1f;
         panelGame.gameObject.SetActive(false);
+        panelGameOver.gameObject.SetActive(false);
+        panelMainMenu.gameObject.SetActive(true);
         panelPause.gameObject.SetActive(false);
+        gameController.BackMainMenu();
     }
 
     public void ButtonRestart(){
         Time.timeScale = 1f;
         panelGame.gameObject.SetActive(true);
         panelPause.gameObject.SetActive(false);
+        panelGameOver.gameObject.SetActive(false);
         gameController.Restart();
 
         foreach (Transform child in allLifes.transform)

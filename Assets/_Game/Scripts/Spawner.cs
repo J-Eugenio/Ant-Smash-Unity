@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
     private void Spawn(){
         if(Time.time > nextSpawn){
             Vector2 position = new Vector2(Random.Range(minX, maxX), transform.position.y);
-            GameObject tempEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector2(position.x, position.y), Quaternion.Euler(0f, 0f, 0f));
+            GameObject tempEnemy = Instantiate(enemies[Random.Range(0, enemies.Length)], new Vector2(position.x, position.y), Quaternion.Euler(Vector3.zero));
             tempEnemy.transform.parent = gameController.allEnemiesParent;
             nextSpawn = Time.time + spawnTime;
         }
